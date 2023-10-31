@@ -5,7 +5,19 @@ import { basicRoutes } from './basicRoutes'
 
 export const WHITE_NAME_LIST = ['/login']
 
-const routes: RouteRecordRaw[] = [...basicRoutes]
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    name: 'Layout',
+    redirect: '/dashboard/workspace',
+    component: () => import('~/layout/index.vue'),
+    meta: {
+      title: '首页'
+    },
+    children: []
+  },
+  ...basicRoutes
+]
 
 export const router = createRouter({
   history: createWebHashHistory(),
