@@ -1,15 +1,15 @@
 import type { App } from 'vue'
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 
-import { basicRoutes } from './basicRoutes'
+import { basicRoutes } from './basic-routes'
 
 export const WHITE_NAME_LIST = ['/login']
 
-const routes: RouteRecordRaw[] = [
+export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Layout',
-    redirect: '/dashboard/workspace',
+    redirect: '/dashboard/welcome',
     component: () => import('~/layout/index.vue'),
     meta: {
       title: '首页'

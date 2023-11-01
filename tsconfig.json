@@ -23,7 +23,8 @@
 
     /* Custom */
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "~~/*": ["types/*"]
     },
     "types": ["node", "vite/client"]
   },

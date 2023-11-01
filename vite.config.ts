@@ -12,7 +12,8 @@ import pkg from './package.json'
 const r = (dir: string) => resolve(__dirname, '.', dir)
 
 const alias: Record<string, string> = {
-  '~': r('src')
+  '~': r('src'),
+  '~~': r('types')
 }
 
 const info = {

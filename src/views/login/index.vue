@@ -1,13 +1,23 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+import { useUserStore } from '~/store/modules/user'
+
+const router = useRouter()
+const route = useRoute()
+
+const userStore = useUserStore()
 
 const loginForm = reactive({
   username: '',
   password: ''
 })
 
-const handleSubmit = () => {
-  if (!loginForm.username.trim() || !loginForm.password.trim()) return
+const handleSubmit = async () => {
+  // if (!loginForm.username.trim() || !loginForm.password.trim()) return
+  await userStore.setMenus()
+  setTimeout(() => router.replace((route.query.redirect as string) ?? '/'))
 }
 </script>
 
