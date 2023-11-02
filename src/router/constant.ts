@@ -12,7 +12,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -29,7 +29,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -46,7 +46,7 @@ export const menus = [
     order: 0,
     component: 'system/permission/user/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -63,7 +63,7 @@ export const menus = [
     order: 0,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -80,7 +80,7 @@ export const menus = [
     order: 0,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -97,7 +97,7 @@ export const menus = [
     order: 0,
     component: 'system/permission/menu/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -114,7 +114,7 @@ export const menus = [
     order: 0,
     component: null,
     isKeepAlive: false,
-    isHide: false,
+    isHide: true,
     isExt: false,
     openMode: 1
   },
@@ -131,7 +131,7 @@ export const menus = [
     order: 0,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -148,7 +148,7 @@ export const menus = [
     order: 0,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -165,7 +165,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -182,7 +182,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -199,7 +199,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -216,7 +216,7 @@ export const menus = [
     order: 0,
     component: 'system/permission/role/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -233,7 +233,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -250,7 +250,7 @@ export const menus = [
     order: 0,
     component: 'charts/keyboard/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: true,
     openMode: 2
   },
@@ -267,7 +267,7 @@ export const menus = [
     order: 2,
     component: 'error-log/components/ErrorTestB/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: true,
     openMode: 1
   },
@@ -284,7 +284,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -301,7 +301,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -318,7 +318,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -335,7 +335,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -352,7 +352,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -369,7 +369,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -386,7 +386,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -403,7 +403,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -420,7 +420,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -437,7 +437,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -454,7 +454,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -471,7 +471,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -488,7 +488,7 @@ export const menus = [
     order: 0,
     component: 'system/monitor/online/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -505,7 +505,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -522,7 +522,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -539,7 +539,7 @@ export const menus = [
     order: 0,
     component: 'system/monitor/login-log/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -556,7 +556,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -573,7 +573,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -590,7 +590,7 @@ export const menus = [
     order: 0,
     component: 'system/schedule/task/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -607,7 +607,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -624,7 +624,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -641,7 +641,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -658,7 +658,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -675,7 +675,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -692,7 +692,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -709,7 +709,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -726,7 +726,7 @@ export const menus = [
     order: 0,
     component: 'system/schedule/log/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -743,7 +743,7 @@ export const menus = [
     order: 0,
     component: '',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -760,7 +760,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -777,7 +777,7 @@ export const menus = [
     order: 255,
     component: 'system/monitor/serve/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -794,7 +794,7 @@ export const menus = [
     order: 255,
     component: 'system/monitor/req-log/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -811,7 +811,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -828,7 +828,7 @@ export const menus = [
     order: 255,
     component: 'netdisk/manage.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -845,7 +845,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -862,7 +862,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -879,7 +879,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -896,7 +896,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -913,7 +913,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -930,7 +930,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -947,7 +947,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -964,7 +964,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -981,7 +981,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -998,7 +998,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1015,7 +1015,7 @@ export const menus = [
     order: 255,
     component: 'netdisk/overview.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1032,7 +1032,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1049,7 +1049,7 @@ export const menus = [
     order: 255,
     component: 'system/param-config/config-list.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1066,7 +1066,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1083,7 +1083,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1100,7 +1100,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1117,7 +1117,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1134,7 +1134,7 @@ export const menus = [
     order: 300,
     component: 'mange/test.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1151,7 +1151,7 @@ export const menus = [
     order: 257,
     component: 'mange/test.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1168,7 +1168,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1185,7 +1185,7 @@ export const menus = [
     order: 255,
     component: 'system/permission/user/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1202,7 +1202,7 @@ export const menus = [
     order: 255,
     component: 'system/permission/user/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1219,7 +1219,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1236,7 +1236,7 @@ export const menus = [
     order: 255,
     component: 'system/monitor/login-log/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1253,7 +1253,7 @@ export const menus = [
     order: 255,
     component: 'dashboard/welcome/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1270,7 +1270,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1287,7 +1287,7 @@ export const menus = [
     order: 55,
     component: 'dashboard/welcome/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1304,7 +1304,7 @@ export const menus = [
     order: 255,
     component: 'account/about.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1321,7 +1321,7 @@ export const menus = [
     order: 255,
     component: 'demos/form/custom-form/index.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1338,7 +1338,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1355,7 +1355,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1373,7 +1373,7 @@ export const menus = [
     order: 255,
     component: 'account/about.vue',
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1390,7 +1390,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1407,7 +1407,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1424,7 +1424,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1441,7 +1441,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1459,7 +1459,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1476,7 +1476,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: false,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1493,7 +1493,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: true,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1510,7 +1510,7 @@ export const menus = [
     order: 255,
     component: null,
     isKeepAlive: true,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   },
@@ -1527,7 +1527,7 @@ export const menus = [
     order: 255,
     component: 'account/about.vue',
     isKeepAlive: true,
-    isHide: true,
+    isHide: false,
     isExt: false,
     openMode: 1
   }

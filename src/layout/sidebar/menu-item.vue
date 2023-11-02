@@ -4,6 +4,10 @@ import type { RouteRecordRaw } from 'vue-router'
 
 import MenuItemContent from './menu-item-content.vue'
 
+defineOptions({
+  name: 'MenuItem'
+})
+
 const props = defineProps({
   menus: {
     type: Array as PropType<RouteRecordRaw[]>,
@@ -32,7 +36,9 @@ const isShowSubMenu = (item: RouteRecordRaw) => {
         <template #title>
           <menu-item-content :item="item" />
         </template>
-        <template v-if="item.children"> </template>
+        <template v-if="item.children">
+          <menu-item :menus="item.children" />
+        </template>
       </a-sub-menu>
     </template>
     <template v-else>

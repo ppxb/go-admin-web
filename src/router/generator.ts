@@ -1,12 +1,12 @@
 import type { RouteRecordRaw } from 'vue-router'
 
+import { router, routes } from '~/router'
 import { RouteType } from '~~/enum'
 import { uniqueSlash } from '~/utils'
-import { asyncModulesViews } from './modules'
-import RouterView from '~/layout/router-view/index.vue'
-import { router, routes } from '~/router'
-import common from '~/router/common'
 import { basicRoutes } from '~/router/basic-routes'
+import { asyncModulesViews } from './modules'
+import common from '~/router/common'
+import RouterView from '~/layout/router-view/index.vue'
 
 export const generateDynamicRoutes = (asyncMenus: RouteMenu[]) => {
   try {
@@ -43,26 +43,27 @@ export const filterAsyncRoutes = (
   lastNamePath: string[] = []
 ): RouteRecordRaw[] =>
   routes
-    .filter(item => {
-      return item.type !== RouteType.Butotn && item.isHide && item.parentId == parentRoute?.id
-    })
+    .filter(
+      item => item.type !== RouteType.Butotn && !item.isHide && item.parentId == parentRoute?.id
+    )
     .map(item => {
-      const { router, component, name, icon, order, isKeepAlive } = item
-      let fullPath = ''
+      const { router, component, name, icon, order, isKeepAlive, perms } = item
       const pathPrefix = lastNamePath.at(-1) || ''
-      fullPath = router.startsWith('/') ? router : `/${router}`
-      fullPath = router.startsWith(pathPrefix) ? fullPath : pathPrefix + fullPath
+
+      let fullPath = ''
+      fullPath = router?.startsWith('/') ? router : `/${router}`
+      fullPath = router?.startsWith(pathPrefix) ? fullPath : pathPrefix + fullPath
       fullPath = [...new Set(uniqueSlash(fullPath).split('/'))].join('/')
 
       let realRoutePath = router
       if (parentRoute) {
-        if (fullPath.startsWith(parentRoute.router)) {
-          realRoutePath = fullPath.split(parentRoute.router)[1]
+        if (fullPath.startsWith(parentRoute.router as string)) {
+          realRoutePath = fullPath.split(parentRoute.router as string)[1]
         }
       }
+      realRoutePath = realRoutePath?.startsWith('/') ? realRoutePath.slice(1) : realRoutePath
+      realRoutePath = realRoutePath?.replace(/http(s)?:\/\//, '')
 
-      realRoutePath = realRoutePath.startsWith('/') ? realRoutePath.slice(1) : realRoutePath
-      realRoutePath = realRoutePath.replace(/http(s)?:\/\//, '')
       const route: Partial<RouteRecordRaw> = {
         path: realRoutePath,
         name: fullPath,
@@ -70,7 +71,7 @@ export const filterAsyncRoutes = (
           title: name,
           icon,
           type: item.type,
-          perms: [],
+          perms: perms?.split(','),
           namePath: lastNamePath.concat(fullPath),
           order,
           isKeepAlive
@@ -86,7 +87,7 @@ export const filterAsyncRoutes = (
         }
         return route
       } else if (item.type === RouteType.View) {
-        route.component = asyncModulesViews[component]
+        route.component = asyncModulesViews[component as string]
         return route
       }
       return undefined
@@ -95,19 +96,20 @@ export const filterAsyncRoutes = (
 
 export const generateNamedPath = (
   routes: RouteRecordRaw[],
-  namePath?: string[],
+  namePath: string[] = [],
   parent?: RouteRecordRaw
 ) => {
   routes.forEach(item => {
     if (item.meta && typeof item.name === 'string') {
-      item.meta.namePath = Array.isArray(namePath) ? namePath.concat(item.name) : [item.name]
-      item.meta.fullPath = parent?.meta?.fullPath
-        ? [parent.meta.fullPath, item.path].join('/')
-        : item.path
-      item.meta.fullPath = uniqueSlash(item.meta.fullPath)
+      const { name, path } = item
+      const { fullPath } = parent?.meta || {}
+      const meta = item.meta
+      meta.namePath = [...namePath, name]
+      meta.fullPath = fullPath ? `${fullPath}/${path}` : path
+      meta.fullPath = uniqueSlash(meta.fullPath)
 
       if (item.children?.length) {
-        generateNamedPath(item.children, item.meta.namePath, item)
+        generateNamedPath(item.children, meta.namePath, item)
       }
     }
   })

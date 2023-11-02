@@ -71,7 +71,7 @@ const clickMenuItem = ({ key }) => {
       :collapsed="props.collapsed"
       @click="clickMenuItem"
     >
-      <menu-item :menu="menus" />
+      <menu-item :menus="menus" />
     </a-menu>
   </div>
 </template>

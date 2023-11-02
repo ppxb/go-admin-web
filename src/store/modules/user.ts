@@ -4,10 +4,11 @@ import { ref } from 'vue'
 import { store } from '~/store'
 import { menus as staticMenus } from '~/router/constant'
 import { generateDynamicRoutes } from '~/router/generator'
+import { RouteRecordRaw } from 'vue-router'
 
 export const useUserStore = defineStore('user', () => {
   const userInfo = ref(null)
-  const menus = ref([])
+  const menus = ref<RouteRecordRaw[]>([])
   const perms = ref([])
 
   const setMenus = async () => {
