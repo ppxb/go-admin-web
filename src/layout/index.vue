@@ -4,6 +4,7 @@ import { computed, ref } from 'vue'
 import Sidebar from './sidebar/index.vue'
 import Content from './content/index.vue'
 import Logo from './logo/index.vue'
+import AppHeader from './header/index.vue'
 
 const collapsed = ref(false)
 
@@ -23,6 +24,7 @@ const sidebarWidth = computed(() => (collapsed.value ? 80 : 256))
       <sidebar :collapsed="collapsed" />
     </a-layout-sider>
     <a-layout>
+      <app-header />
       <content />
     </a-layout>
   </a-layout>
