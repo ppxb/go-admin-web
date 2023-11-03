@@ -89,7 +89,7 @@ const handleSubmit = async () => {
         </a>
         构建。本项目源代码已在
         <a
-          href="https://github.com/ppxb/cron-web"
+          href="https://github.com/ppxb/go-admin-web"
           target="_blank"
           rel="noreferrer"
           class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
@@ -98,12 +98,12 @@ const handleSubmit = async () => {
         </a>
         开源，使用
         <a
-          href="https://github.com/ppxb/cron-web/blob/master/LICENSE"
+          href="https://github.com/ppxb/go-admin-web/blob/main/LICENSE"
           target="_blank"
           rel="noreferrer"
           class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
         >
-          MIT
+          Apache
         </a>
         协议。
       </p>
