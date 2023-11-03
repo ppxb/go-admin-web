@@ -25,6 +25,12 @@ dependencies:
     version: registry.npmmirror.com/vue-router@4.2.5(vue@3.3.4)
 
 devDependencies:
+  '@iconify-json/bxl':
+    specifier: ^1.1.7
+    version: registry.npmmirror.com/@iconify-json/bxl@1.1.7
+  '@iconify-json/carbon':
+    specifier: ^1.1.21
+    version: registry.npmmirror.com/@iconify-json/carbon@1.1.21
   '@types/node':
     specifier: ^20.8.8
     version: registry.npmmirror.com/@types/node@20.8.8
@@ -404,6 +410,22 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  registry.npmmirror.com/@iconify-json/bxl@1.1.7:
+    resolution: {integrity: sha512-lvhC6+HQ/Fx/H81ekRASgIWVcNt5CRBVyvvhA2BEmdOBlNZmgZA1LdDrhzooZLIR4iRESLpETc0x9cJklGBSzw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/bxl/-/bxl-1.1.7.tgz}
+    name: '@iconify-json/bxl'
+    version: 1.1.7
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
+    dev: true
+
+  registry.npmmirror.com/@iconify-json/carbon@1.1.21:
+    resolution: {integrity: sha512-bK2cMVM4noBU+FGlay433flpXLRzQu0ED095iAnoO6ka3yb4uz0lvb8acpN5gthyGLJ89C4HpfIbQZLQnMKQww==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/carbon/-/carbon-1.1.21.tgz}
+    name: '@iconify-json/carbon'
+    version: 1.1.21
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
+    dev: true
 
   registry.npmmirror.com/@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/types/-/types-2.0.0.tgz}

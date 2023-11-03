@@ -1,8 +1,17 @@
-import { defineConfig, presetUno, presetWebFonts, transformerDirectives } from 'unocss'
+import { defineConfig, presetUno, presetIcons, presetWebFonts, transformerDirectives } from 'unocss'
 
 export default defineConfig({
   presets: [
     presetUno,
+    presetIcons({
+      extraProperties: {
+        display: 'inline-block'
+      },
+      collections: {
+        carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
+        bxl: () => import('@iconify-json/bxl/icons.json').then(i => i.default)
+      }
+    }),
     presetWebFonts({
       provider: 'bunny',
       fonts: {
@@ -19,5 +28,10 @@ export default defineConfig({
       }
     })
   ],
-  transformers: [transformerDirectives()]
+  transformers: [transformerDirectives()],
+  shortcuts: {
+    'bg-muted': 'bg-#f9f9f9',
+    'text-muted': 'text-slate-950',
+    'text-muted-foreground': 'text-slate-900/60'
+  }
 })

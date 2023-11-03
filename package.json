@@ -17,6 +17,8 @@
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
+    "@iconify-json/bxl": "^1.1.7",
+    "@iconify-json/carbon": "^1.1.21",
     "@types/node": "^20.8.8",
     "@vitejs/plugin-vue": "^4.2.3",
     "dayjs": "^1.11.10",

@@ -22,37 +22,101 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div class="w-screen h-screen flex flex-col items-center justify-center">
-    <div class="flex items-center mb-4">
-      <h1>后台管理系统</h1>
+  <div class="w-screen h-screen flex flex-col items-center justify-between py-16 px-4 bg-muted">
+    <div class="i-bxl-tumblr h-16 w-16 text-slate-950/90" />
+    <div class="flex flex-col items-center">
+      <h1 class="text-center font-medium text-4xl text-muted font-semibold mb-3">欢迎使用 Turbo</h1>
+      <span class="text-sm text-muted-foreground mb-6"
+        >登录或者获得账号以开始对您的综合数据进行管理</span
+      >
+      <a-form class="mb-3" layout="horizontal" :model="loginForm" @submit.prevent="handleSubmit">
+        <a-form-item>
+          <a-input
+            allow-clear
+            placeholder="请输入用户名"
+            autocomplete="off"
+            v-model:value="loginForm.username"
+          >
+            <template #addonBefore>
+              <i class="h-5 w-5 i-carbon-user-avatar" />
+            </template>
+          </a-input>
+        </a-form-item>
+        <a-form-item>
+          <a-input
+            allow-clear
+            type="password"
+            placeholder="请输入密码"
+            autocomplete="new-password"
+            v-model:value="loginForm.password"
+          >
+            <template #addonBefore>
+              <i
+                class="h-5 w-5 i-carbon-ibm-cloud-security-compliance-center-workload-protection"
+              />
+            </template>
+          </a-input>
+        </a-form-item>
+        <a-form-item>
+          <a-button type="primary" html-type="submit" size="large" block>登录</a-button>
+        </a-form-item>
+      </a-form>
+      <div className="relative mb-4 w-full">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full h-1px bg-slate-900/10 border-t" />
+        </div>
+        <div className="relative flex justify-center text-xs">
+          <span className="px-2 bg-muted text-muted-foreground"> 或使用以下方式继续 </span>
+        </div>
+      </div>
+      <a-button class="!text-sm flex items-center justify-center" size="large" disabled block>
+        <i class="h-5 w-5 mr-2 i-carbon-logo-wechat" />
+        微信
+      </a-button>
     </div>
-    <a-form layout="horizontal" :model="loginForm" @submit.prevent="handleSubmit">
-      <a-form-item>
-        <a-input
-          size="large"
-          placeholder="请输入用户名"
-          autocomplete="off"
-          v-model:value="loginForm.username"
-        />
-      </a-form-item>
-      <a-form-item>
-        <a-input
-          size="large"
-          type="password"
-          placeholder="请输入密码"
-          autocomplete="new-password"
-          v-model:value="loginForm.password"
-        />
-      </a-form-item>
-      <a-form-item>
-        <a-button type="primary" html-type="submit" size="large" block>登录</a-button>
-      </a-form-item>
-    </a-form>
+    <footer
+      class="relative z-20 text-sm flex items-center all:transition-300 text-muted-foreground"
+    >
+      <p>
+        由
+        <a
+          href="https://github.com/ppxb"
+          target="_blank"
+          rel="noreferrer"
+          class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
+        >
+          无敌小老鼠
+        </a>
+        构建。本项目源代码已在
+        <a
+          href="https://github.com/ppxb/cron-web"
+          target="_blank"
+          rel="noreferrer"
+          class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
+        >
+          Github
+        </a>
+        开源，使用
+        <a
+          href="https://github.com/ppxb/cron-web/blob/master/LICENSE"
+          target="_blank"
+          rel="noreferrer"
+          class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
+        >
+          MIT
+        </a>
+        协议。
+      </p>
+    </footer>
   </div>
 </template>
 
 <style scoped>
 :deep(.ant-form) {
   --at-apply: w-300px;
+}
+
+:deep(.ant-form-item) {
+  --at-apply: mb-4;
 }
 </style>
