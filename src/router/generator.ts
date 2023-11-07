@@ -5,15 +5,15 @@ import { RouteType } from '~~/enum'
 import { uniqueSlash } from '~/utils'
 import { basicRoutes } from '~/router/basic-routes'
 import { asyncModulesViews } from './modules'
-import common from '~/router/common'
+import commonRoutes from '~/router/common'
 import RouterView from '~/layout/router-view/index.vue'
 
 export const generateDynamicRoutes = (asyncMenus: RouteMenu[]) => {
   try {
     const asyncRoutes = filterAsyncRoutes(asyncMenus)
     const layout = routes.find(n => n.name === 'Layout')!
-    generateNamedPath(common)
-    const menus = [...common, ...asyncRoutes]
+    generateNamedPath(commonRoutes)
+    const menus = [...commonRoutes, ...asyncRoutes]
     layout.children = menus
     const removeRoutes = router.addRoute(layout)
     const filteredRoutes = router
@@ -38,13 +38,16 @@ export const generateDynamicRoutes = (asyncMenus: RouteMenu[]) => {
 }
 
 export const filterAsyncRoutes = (
-  routes: RouteMenu[],
+  menus: RouteMenu[],
   parentRoute: RouteMenu | null = null,
   lastNamePath: string[] = []
 ): RouteRecordRaw[] =>
-  routes
+  menus
     .filter(
-      item => item.type !== RouteType.Butotn && !item.isHide && item.parentId == parentRoute?.id
+      item =>
+        item.type !== RouteType.Butotn &&
+        !item.isHide &&
+        (item.parentId == Number(!!parentRoute?.id) || item.parentId === parentRoute?.id)
     )
     .map(item => {
       const { router, component, name, icon, order, isKeepAlive, perms } = item
@@ -78,15 +81,15 @@ export const filterAsyncRoutes = (
         }
       }
 
-      if (item.type === RouteType.Menu) {
-        const children = filterAsyncRoutes(routes, item, lastNamePath.concat(fullPath))
+      if (item.type === RouteType.Directory) {
+        const children = filterAsyncRoutes(menus, item, lastNamePath.concat(fullPath))
         if (children.length) {
           route.component = RouterView
           route.children = children
           route.redirect = { name: children[0].name }
         }
         return route
-      } else if (item.type === RouteType.View) {
+      } else if (item.type === RouteType.Menu) {
         route.component = asyncModulesViews[component as string]
         return route
       }

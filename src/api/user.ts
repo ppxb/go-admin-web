@@ -7,10 +7,10 @@ export interface LoginData {
 }
 
 export interface LoginResult {
-  userInfo: UserInfo
+  user: UserInfo
   token: string
-  menuList: string[]
-  permissions: string[]
+  menus: RouteMenu[]
+  perms: string[]
 }
 
 export interface UserInfo {

@@ -12,23 +12,23 @@ const userStore = useUserStore()
 const { message } = useMessage()
 
 const loginForm = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '123'
 })
 const loadingRef = ref(false)
 
 const handleSubmit = async () => {
   if (!loginForm.username.trim() || !loginForm.password.trim()) {
-    message.error('用户名或密码不能为空', 2)
+    message.error('用户名或密码不能为空')
     return
   }
+
   loadingRef.value = true
-  const isLogin = await userStore.login(loginForm)
-  loadingRef.value = false
-  if (isLogin) {
-    await userStore.setMenus()
-    setTimeout(() => router.replace((route.query.redirect as string) ?? '/'))
+  if (await userStore.login(loginForm)) {
+    message.success('登录成功')
+    router.replace((route.query.redirect as string) ?? '/')
   }
+  loadingRef.value = false
 }
 </script>
 

@@ -1,18 +1,17 @@
 import { ref } from 'vue'
-import { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 import { defineStore } from 'pinia'
 
 import { store } from '~/store'
-import { menus as staticMenus } from '~/router/constant'
+import { LoginData, login as LoginApi, LoginResult, UserInfo } from '~/api/user'
 import { generateDynamicRoutes } from '~/router/generator'
-import { LoginData, login as LoginApi, LoginResult } from '~/api/user'
 import { useMessage } from '~/composables/use-message'
 import { setToken } from '~/utils/cache'
 
 export const useUserStore = defineStore('user', () => {
-  const userInfo = ref(null)
+  const user = ref<UserInfo>()
   const menus = ref<RouteRecordRaw[]>([])
-  const perms = ref([])
+  const perms = ref<string[]>([])
   const { httpMessage } = useMessage()
 
   const login = async (data: LoginData): Promise<boolean> => {
@@ -20,18 +19,21 @@ export const useUserStore = defineStore('user', () => {
     httpMessage(res.code, res.message)
     if (res.code === 0) {
       const data = res.data as LoginResult
-      setToken(data.token, data.token)
+      setToken(data.token)
+      await getInfoAndRules(data)
       return true
     }
     return false
   }
 
-  const setMenus = async () => {
-    const r = await generateDynamicRoutes(staticMenus)
+  const getInfoAndRules = async (data: LoginResult) => {
+    user.value = data.user
+    perms.value = data.perms
+    const r = await generateDynamicRoutes(data.menus)
     menus.value = r.menus
   }
 
-  return { userInfo, menus, perms, login, setMenus }
+  return { user, menus, perms, login, getInfoAndRules }
 })
 
 export const useUserStoreHook = () => useUserStore(store)

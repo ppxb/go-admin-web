@@ -9,7 +9,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Layout',
-    redirect: '/dashboard/welcome',
+    redirect: '/dashboard/workspace',
     component: () => import('~/layout/index.vue'),
     meta: {
       title: '首页'
