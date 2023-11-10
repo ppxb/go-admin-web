@@ -4,4 +4,4 @@ export const setToken = (token: string) => {
 
 export const getToken = (): string | null => localStorage.getItem('token')
 
-export const clearCache = () => localStorage.clear()
+export const removeToken = () => localStorage.clear()

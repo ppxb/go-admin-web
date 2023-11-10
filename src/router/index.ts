@@ -1,9 +1,11 @@
 import type { App } from 'vue'
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
+import 'nprogress/nprogress.css'
 
 import { basicRoutes } from './basic-routes'
+import { createRouterGuard } from './guard'
 
-export const WHITE_NAME_LIST = ['/login']
+export const WHITE_NAME_LIST = ['Login']
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -33,6 +35,8 @@ export const resetRouter = () =>
   })
 
 export const setupRouter = async (app: App) => {
+  createRouterGuard(router, WHITE_NAME_LIST)
+
   app.use(router)
 
   await router.isReady()

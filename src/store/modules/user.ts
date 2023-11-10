@@ -1,39 +1,60 @@
 import { ref } from 'vue'
-import type { RouteRecordRaw } from 'vue-router'
 import { defineStore } from 'pinia'
+import type { RouteRecordRaw } from 'vue-router'
 
 import { store } from '~/store'
-import { LoginData, login as LoginApi, LoginResult, UserInfo } from '~/api/user'
+import {
+  LoginData,
+  login as LoginApi,
+  getInfo as GetInfoApi,
+  LoginResult,
+  UserInfo,
+  UserInfoResult
+} from '~/api/user'
 import { generateDynamicRoutes } from '~/router/generator'
-import { useMessage } from '~/composables/use-message'
-import { setToken } from '~/utils/cache'
+import { setToken, removeToken } from '~/utils/cache'
 
 export const useUserStore = defineStore('user', () => {
   const user = ref<UserInfo>()
   const menus = ref<RouteRecordRaw[]>([])
   const perms = ref<string[]>([])
-  const { httpMessage } = useMessage()
 
-  const login = async (data: LoginData): Promise<boolean> => {
-    const res = await LoginApi(data)
-    httpMessage(res.code, res.message)
-    if (res.code === 0) {
-      const data = res.data as LoginResult
-      setToken(data.token)
-      await getInfoAndRules(data)
-      return true
+  const login = async (data: LoginData) => {
+    try {
+      const res = await LoginApi(data)
+      if (res.code === 0) {
+        const data = res.data as LoginResult
+        setToken(data.token)
+        await getInfoAndRules()
+      }
+    } catch (error) {
+      return Promise.reject(error)
     }
-    return false
   }
 
-  const getInfoAndRules = async (data: LoginResult) => {
-    user.value = data.user
-    perms.value = data.perms
-    const r = await generateDynamicRoutes(data.menus)
-    menus.value = r.menus
+  const getInfoAndRules = async () => {
+    try {
+      const res = await GetInfoApi()
+      if (res.code === 0) {
+        const data = res.data as UserInfoResult
+        user.value = data.user
+        perms.value = data.perms
+        const r = await generateDynamicRoutes(data.menus)
+        menus.value = r.menus
+      }
+    } catch (error) {
+      return Promise.reject(error)
+    }
   }
 
-  return { user, menus, perms, login, getInfoAndRules }
+  const reset = () => {
+    user.value = undefined
+    menus.value = []
+    perms.value = []
+    removeToken()
+  }
+
+  return { user, menus, perms, login, getInfoAndRules, reset }
 })
 
 export const useUserStoreHook = () => useUserStore(store)

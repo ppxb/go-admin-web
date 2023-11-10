@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 import { useUserStore } from '~/store/modules/user'
 import { useMessage } from '~/composables/use-message'
+import { to } from '~/utils/await-to'
 
 const router = useRouter()
 const route = useRoute()
@@ -24,7 +25,10 @@ const handleSubmit = async () => {
   }
 
   loadingRef.value = true
-  if (await userStore.login(loginForm)) {
+  const [err] = await to(userStore.login(loginForm))
+  if (err) {
+    message.error(err.message)
+  } else {
     message.success('登录成功')
     router.replace((route.query.redirect as string) ?? '/')
   }

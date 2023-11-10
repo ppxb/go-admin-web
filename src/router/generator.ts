@@ -91,6 +91,7 @@ export const filterAsyncRoutes = (
         return route
       } else if (item.type === RouteType.Menu) {
         route.component = asyncModulesViews[component as string]
+        route.children = []
         return route
       }
       return undefined

@@ -12,6 +12,7 @@
     "@ant-design/icons-vue": "^7.0.1",
     "ant-design-vue": "^4.0.6",
     "axios": "^1.6.0",
+    "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
@@ -20,6 +21,7 @@
     "@iconify-json/bxl": "^1.1.7",
     "@iconify-json/carbon": "^1.1.21",
     "@types/node": "^20.8.8",
+    "@types/nprogress": "^0.2.3",
     "@vitejs/plugin-vue": "^4.2.3",
     "dayjs": "^1.11.10",
     "typescript": "^5.0.2",

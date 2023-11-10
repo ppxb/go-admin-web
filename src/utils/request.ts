@@ -5,13 +5,18 @@ import { getToken } from './cache'
 const createInstance = () => {
   const instance = axios.create()
 
-  instance.interceptors.request.use(config => {
-    const token = getToken()
-    if (token && !config.headers.Authorization) {
-      config.headers.Authorization = `Bearer ${token}`
+  instance.interceptors.request.use(
+    config => {
+      const token = getToken()
+      if (token && !config.headers.Authorization) {
+        config.headers.Authorization = `Bearer ${token}`
+      }
+      return config
+    },
+    error => {
+      Promise.reject(error)
     }
-    return config
-  })
+  )
 
   instance.interceptors.response.use(
     response => {
@@ -19,7 +24,11 @@ const createInstance = () => {
       if (res || response.config.responseType === 'blob') return res
       return null
     },
-    async (err: AxiosError<any>) => {}
+    async (error: AxiosError<any>) => {
+      const msg = error.response?.data.message ?? '未知错误，请重试'
+      error.message = msg
+      return Promise.reject(error)
+    }
   )
 
   return instance

@@ -7,8 +7,11 @@ export interface LoginData {
 }
 
 export interface LoginResult {
-  user: UserInfo
   token: string
+}
+
+export interface UserInfoResult {
+  user: UserInfo
   menus: RouteMenu[]
   perms: string[]
 }
@@ -29,5 +32,12 @@ export const login = (data: LoginData) => {
     url: '/login',
     method: ApiMethod.POST,
     data
+  })
+}
+
+export const getInfo = () => {
+  return request<Result<UserInfoResult>>({
+    url: '/user/info',
+    method: ApiMethod.GET
   })
 }

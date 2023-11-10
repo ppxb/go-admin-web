@@ -6,3 +6,7 @@
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
 }
+
+#nprogress .bar {
+  background: #2f54eb !important;
+}

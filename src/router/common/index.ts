@@ -1,1 +1,3 @@
-export { default } from './dashboard'
+import dashboard from './dashboard'
+
+export default [...dashboard]
