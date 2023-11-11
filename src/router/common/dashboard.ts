@@ -24,7 +24,7 @@ const routes: RouteRecordRaw[] = [
         name: 'Workspace',
         meta: {
           title: '工作空间',
-          icon: 'i-ic:outline-desktop-mac'
+          icon: 'i-ic:baseline-panorama-wide-angle'
         },
         component: () => import('~/views/dashboard/workspace/index.vue')
       }

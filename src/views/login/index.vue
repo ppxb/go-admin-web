@@ -55,7 +55,7 @@ const handleSubmit = async () => {
             v-model:value="loginForm.username"
           >
             <template #addonBefore>
-              <i class="i-carbon-user-avatar h-5 w-5" />
+              <i class="i-ic:outline-account-circle h-5 w-5" />
             </template>
           </a-input>
         </a-form-item>
@@ -68,9 +68,7 @@ const handleSubmit = async () => {
             v-model:value="loginForm.password"
           >
             <template #addonBefore>
-              <i
-                class="i-carbon-ibm-cloud-security-compliance-center-workload-protection h-5 w-5"
-              />
+              <i class="i-ic:round-crisis-alert h-5 w-5" />
             </template>
           </a-input>
         </a-form-item>
