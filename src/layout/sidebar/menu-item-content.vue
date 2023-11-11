@@ -11,5 +11,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div>{{ props.item.meta?.title }}</div>
+  <div class="flex items-center">
+    <i class="h-5 w-5 mr-2" :class="item.meta?.icon" />
+    {{ props.item.meta?.title }}
+  </div>
 </template>

@@ -1,6 +1,11 @@
 import { defineConfig, presetUno, presetIcons, presetWebFonts, transformerDirectives } from 'unocss'
 
 export default defineConfig({
+  content: {
+    pipeline: {
+      include: [/\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/, 'src/**/*.{js,ts}']
+    }
+  },
   presets: [
     presetUno,
     presetIcons({
@@ -9,7 +14,7 @@ export default defineConfig({
       },
       collections: {
         carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
-        bxl: () => import('@iconify-json/bxl/icons.json').then(i => i.default)
+        ic: () => import('@iconify-json/ic/icons.json').then(i => i.default)
       }
     }),
     presetWebFonts({

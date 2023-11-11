@@ -28,12 +28,12 @@ dependencies:
     version: 4.2.5(vue@3.3.4)
 
 devDependencies:
-  '@iconify-json/bxl':
-    specifier: ^1.1.7
-    version: 1.1.7
   '@iconify-json/carbon':
     specifier: ^1.1.21
     version: 1.1.21
+  '@iconify-json/ic':
+    specifier: ^1.1.14
+    version: 1.1.14
   '@types/node':
     specifier: ^20.8.8
     version: 20.8.8
@@ -344,14 +344,14 @@ packages:
     dev: true
     optional: true
 
-  /@iconify-json/bxl@1.1.7:
-    resolution: {integrity: sha512-lvhC6+HQ/Fx/H81ekRASgIWVcNt5CRBVyvvhA2BEmdOBlNZmgZA1LdDrhzooZLIR4iRESLpETc0x9cJklGBSzw==}
+  /@iconify-json/carbon@1.1.21:
+    resolution: {integrity: sha512-bK2cMVM4noBU+FGlay433flpXLRzQu0ED095iAnoO6ka3yb4uz0lvb8acpN5gthyGLJ89C4HpfIbQZLQnMKQww==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/carbon@1.1.21:
-    resolution: {integrity: sha512-bK2cMVM4noBU+FGlay433flpXLRzQu0ED095iAnoO6ka3yb4uz0lvb8acpN5gthyGLJ89C4HpfIbQZLQnMKQww==}
+  /@iconify-json/ic@1.1.14:
+    resolution: {integrity: sha512-vbATa9uwb9pIsRWQ+iXObQCgLTePk/0vo4shBr3Td0GnTjsAU/7VUGTkrZFVf5vpgiG6OsXkcKMPzBPvt966sg==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

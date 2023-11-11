@@ -1,14 +1,9 @@
 <script lang="ts" setup>
 import { computed, reactive, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+
 import { useUserStore } from '~/store/modules/user'
 import MenuItem from './menu-item.vue'
-
-const props = defineProps({
-  collapsed: {
-    type: Boolean
-  }
-})
 
 const route = useRoute()
 const router = useRouter()
@@ -39,7 +34,7 @@ const getOpenKeys = () => {
 watch(
   () => route.fullPath,
   () => {
-    if (route.name === 'Login' || props.collapsed) return
+    if (route.name === 'Login') return
     state.openKeys = getOpenKeys()
     const { meta } = route
     if (meta.activeMenu) {
@@ -68,7 +63,6 @@ const clickMenuItem = ({ key }) => {
       mode="inline"
       v-model:selected-keys="state.selectedKeys"
       :open-keys="state.openKeys"
-      :collapsed="props.collapsed"
       @click="clickMenuItem"
     >
       <menu-item :menus="menus" />

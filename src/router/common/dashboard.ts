@@ -6,16 +6,25 @@ const routes: RouteRecordRaw[] = [
     name: 'Dashboard',
     redirect: '/dashboard/workspace',
     meta: {
-      title: '控制台',
-      icon: 'icon-yibiaopan'
+      title: '总览',
+      icon: 'i-ic:baseline-bar-chart'
     },
     children: [
+      {
+        path: 'chart',
+        name: 'Chart',
+        meta: {
+          title: '数据面板',
+          icon: 'i-ic:baseline-auto-graph'
+        },
+        component: () => import('~/views/dashboard/workspace/index.vue')
+      },
       {
         path: 'workspace',
         name: 'Workspace',
         meta: {
-          title: '欢迎',
-          icon: 'icon-shouye'
+          title: '工作空间',
+          icon: 'i-ic:outline-desktop-mac'
         },
         component: () => import('~/views/dashboard/workspace/index.vue')
       }

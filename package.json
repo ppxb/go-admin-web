@@ -18,8 +18,8 @@
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@iconify-json/bxl": "^1.1.7",
     "@iconify-json/carbon": "^1.1.21",
+    "@iconify-json/ic": "^1.1.14",
     "@types/node": "^20.8.8",
     "@types/nprogress": "^0.2.3",
     "@vitejs/plugin-vue": "^4.2.3",

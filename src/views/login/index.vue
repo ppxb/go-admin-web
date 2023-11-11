@@ -38,9 +38,11 @@ const handleSubmit = async () => {
 
 <template>
   <div class="w-screen h-screen flex flex-col items-center justify-between py-16 px-4 bg-muted">
-    <div class="i-bxl-tumblr h-16 w-16 text-slate-950/90" />
+    <div class="i-carbon:logo-slack h-16 w-16 text-slate-950/90" />
     <div class="flex flex-col items-center">
-      <h1 class="text-center text-4xl font-semibold mb-3 text-muted">欢迎使用 Turbo</h1>
+      <h1 class="text-center text-4xl font-semibold mb-3 text-muted">
+        欢迎使用 <span class="font-bold">Turbo</span>
+      </h1>
       <span class="text-sm mb-6 text-muted-foreground"
         >登录或者获得账号以开始对您的综合数据进行管理</span
       >

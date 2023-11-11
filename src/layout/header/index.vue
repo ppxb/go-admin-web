@@ -16,6 +16,7 @@ const emit = defineEmits(['update:collapsed'])
 const route = useRoute()
 const router = useRouter()
 const userStore = useUserStore()
+const user = computed(() => userStore.user)
 
 const menus = computed(() => {
   if (route.meta.namePath) {
@@ -76,7 +77,9 @@ const findLastChild = (route: RouteRecordRaw) => {
 </script>
 
 <template>
-  <a-page-header class="flex sticky z-10 top-0 items-center justify-between h-60px px-20px">
+  <a-layout-header
+    class="bg-white! flex sticky z-10 top-0 items-center justify-between h-60px px-20px"
+  >
     <a-space :size="20">
       <slot>
         <a-space :size="20">
@@ -106,5 +109,18 @@ const findLastChild = (route: RouteRecordRaw) => {
         </a-space>
       </slot>
     </a-space>
-  </a-page-header>
+    <a-space :size="20">
+      <a-dropdown placement="bottomRight">
+        <a-avatar :src="user?.avatar" :alt="user?.name">{{ user?.name }}</a-avatar>
+        <template #overlay>
+          <a-menu>
+            <a-menu-item>关于</a-menu-item>
+            <a-menu-item>个人设置</a-menu-item>
+            <a-menu-divider />
+            <a-menu-item>注销登录</a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
+    </a-space>
+  </a-layout-header>
 </template>
