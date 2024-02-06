@@ -1,6 +1,5 @@
 import { resolve } from 'path'
 import dayjs from 'dayjs'
-
 import type { ConfigEnv, UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
@@ -28,6 +27,12 @@ export default ({}: ConfigEnv): UserConfig => {
       UnoCSS(),
       Components({
         dts: 'types/components.d.ts',
+        types: [
+          {
+            from: 'vue-router',
+            names: ['RouterLink', 'RouterView']
+          }
+        ],
         resolvers: [
           AntDesignVueResolver({
             importStyle: false

@@ -12,20 +12,19 @@ const route = useRoute()
 const userStore = useUserStore()
 const { message } = useMessage()
 
-const loginForm = reactive({
+const formInline = reactive({
   username: 'admin',
   password: '123'
 })
 const loadingRef = ref(false)
 
 const handleSubmit = async () => {
-  if (!loginForm.username.trim() || !loginForm.password.trim()) {
-    message.error('用户名或密码不能为空')
-    return
+  if (!formInline.username.trim() || !formInline.password.trim()) {
+    return message.error('用户名或密码不能为空')
   }
 
   loadingRef.value = true
-  const [err] = await to(userStore.login(loginForm))
+  const [err] = await to(userStore.login(formInline))
   if (err) {
     message.error(err.message)
   } else {
@@ -38,21 +37,21 @@ const handleSubmit = async () => {
 
 <template>
   <div class="w-screen h-screen flex flex-col items-center justify-between py-16 px-4 bg-muted">
-    <div class="i-carbon:logo-slack h-16 w-16 text-slate-950/90" />
+    <div class="i-carbon:logo-slack h-12 w-12 text-slate-950/90" />
     <div class="flex flex-col items-center">
       <h1 class="text-center text-4xl font-semibold mb-3 text-muted">
-        欢迎使用 <span class="font-bold">Turbo</span>
+        欢迎使用 <span class="font-bold">Turbo OA</span>
       </h1>
       <span class="text-sm mb-6 text-muted-foreground"
-        >登录或者获得账号以开始对您的综合数据进行管理</span
+        >登录或者获得账号以开始使用自动化工作流系统</span
       >
-      <a-form class="mb-3" layout="horizontal" :model="loginForm" @submit.prevent="handleSubmit">
+      <a-form class="mb-3" layout="horizontal" :model="formInline" @submit.prevent="handleSubmit">
         <a-form-item>
           <a-input
             allow-clear
             placeholder="请输入用户名"
             autocomplete="off"
-            v-model:value="loginForm.username"
+            v-model:value="formInline.username"
           >
             <template #addonBefore>
               <i class="i-ic:outline-account-circle h-5 w-5" />
@@ -65,7 +64,7 @@ const handleSubmit = async () => {
             type="password"
             placeholder="请输入密码"
             autocomplete="new-password"
-            v-model:value="loginForm.password"
+            v-model:value="formInline.password"
           >
             <template #addonBefore>
               <i class="i-ic:round-crisis-alert h-5 w-5" />
