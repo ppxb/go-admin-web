@@ -1,60 +1,62 @@
 import { ref } from 'vue'
-import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
+import { defineStore } from 'pinia'
 
 import { store } from '~/store'
-import {
-  LoginData,
-  login as LoginApi,
-  getInfo as GetInfoApi,
-  LoginResult,
-  UserInfo,
-  UserInfoResult
-} from '~/api/user'
+import Api from '~/api'
 import { generateDynamicRoutes } from '~/router/generator'
-import { setToken, removeToken } from '~/utils/cache'
+import { storage } from '~/utils/storage'
+import { ACCESS_TOKEN_KEY } from '~/constants/cache'
+import { resetRouter } from '~/router'
 
 export const useUserStore = defineStore('user', () => {
-  const user = ref<UserInfo>()
+  const token = ref(storage.get(ACCESS_TOKEN_KEY, null))
+  const user = ref<Partial<API.UserEntity>>({})
   const menus = ref<RouteRecordRaw[]>([])
   const perms = ref<string[]>([])
 
-  const login = async (data: LoginData) => {
-    try {
-      const res = await LoginApi(data)
-      if (res.code === 0) {
-        const data = res.data as LoginResult
-        setToken(data.token)
-        await getInfoAndRules()
-      }
-    } catch (error) {
-      return Promise.reject(error)
-    }
-  }
-
-  const getInfoAndRules = async () => {
-    try {
-      const res = await GetInfoApi()
-      if (res.code === 0) {
-        const data = res.data as UserInfoResult
-        user.value = data.user
-        perms.value = data.perms
-        const r = await generateDynamicRoutes(data.menus)
-        menus.value = r.menus
-      }
-    } catch (error) {
-      return Promise.reject(error)
-    }
+  const setToken = (t: string): void => {
+    token.value = t
+    storage.set(ACCESS_TOKEN_KEY, token.value)
   }
 
   const reset = () => {
-    user.value = undefined
-    menus.value = []
+    token.value = ''
     perms.value = []
-    removeToken()
+    menus.value = []
+    user.value = {}
+    storage.clear()
   }
 
-  return { user, menus, perms, login, getInfoAndRules, reset }
+  const login = async (params: API.LoginReq) => {
+    try {
+      const data = await Api.auth.login(params)
+      setToken(data.token)
+      await afterLogin()
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
+
+  const logout = async () => {
+    await Api.auth.logout()
+    reset()
+    resetRouter()
+  }
+
+  const afterLogin = async () => {
+    try {
+      const data = await Api.user.userWithPerms()
+      user.value = data.user
+      perms.value = data.perms
+      const r = await generateDynamicRoutes(data.menus)
+      menus.value = r.menus
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
+
+  return { token, user, menus, perms, login, logout, afterLogin, reset }
 })
 
 export const useUserStoreHook = () => useUserStore(store)

@@ -1,7 +1,8 @@
-import { resolve } from 'path'
-import dayjs from 'dayjs'
 import type { ConfigEnv, UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { resolve } from 'path'
+import dayjs from 'dayjs'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import UnoCSS from 'unocss/vite'
@@ -24,6 +25,7 @@ export default ({}: ConfigEnv): UserConfig => {
   return {
     plugins: [
       vue(),
+      vueJsx(),
       UnoCSS(),
       Components({
         dts: 'types/components.d.ts',
@@ -42,6 +44,18 @@ export default ({}: ConfigEnv): UserConfig => {
     ],
     resolve: {
       alias
+    },
+    optimizeDeps: {
+      include: ['lodash-es']
+    },
+    server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8100/api/v1',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, '')
+        }
+      }
     },
     define: {
       __APP_INFO__: JSON.stringify(info)

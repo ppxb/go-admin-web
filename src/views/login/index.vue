@@ -1,16 +1,15 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { message } from 'ant-design-vue'
 
 import { useUserStore } from '~/store/modules/user'
-import { useMessage } from '~/composables/use-message'
 import { to } from '~/utils/await-to'
 
 const router = useRouter()
 const route = useRoute()
 
 const userStore = useUserStore()
-const { message } = useMessage()
 
 const formInline = reactive({
   username: 'admin',
@@ -20,7 +19,7 @@ const loadingRef = ref(false)
 
 const handleSubmit = async () => {
   if (!formInline.username.trim() || !formInline.password.trim()) {
-    return message.error('用户名或密码不能为空')
+    return message.warning('用户名或密码不能为空')
   }
 
   loadingRef.value = true
@@ -29,7 +28,7 @@ const handleSubmit = async () => {
     message.error(err.message)
   } else {
     message.success('登录成功')
-    router.replace((route.query.redirect as string) ?? '/')
+    setTimeout(() => router.replace((route.query.redirect as string) ?? '/'))
   }
   loadingRef.value = false
 }

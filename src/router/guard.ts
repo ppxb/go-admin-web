@@ -5,6 +5,8 @@ import { useUserStore } from '~/store/modules/user'
 import { useKeepAliveStore } from '~/store/modules/keepAlive'
 import { getToken } from '~/utils/cache'
 import { to as _to } from '~/utils/await-to'
+import { storage } from '~/utils/storage'
+import { ACCESS_TOKEN_KEY } from '~/constants/cache'
 
 NProgress.configure({ showSpinner: false })
 
@@ -15,7 +17,7 @@ export const createRouterGuard = (router: Router, whiteNameList: string[]) => {
     NProgress.start()
 
     const userStore = useUserStore()
-    const token = getToken()
+    const token = storage.get(ACCESS_TOKEN_KEY, null)
 
     if (token) {
       if (to.name === 'Login') {
@@ -23,7 +25,7 @@ export const createRouterGuard = (router: Router, whiteNameList: string[]) => {
       } else {
         const hasRoute = router.hasRoute(to.name!)
         if (userStore.menus.length === 0) {
-          const [err] = await _to(userStore.getInfoAndRules())
+          const [err] = await _to(userStore.afterLogin())
           if (err) {
             userStore.reset()
             return next({ name: 'Login' })
