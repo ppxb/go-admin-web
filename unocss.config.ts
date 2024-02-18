@@ -1,4 +1,11 @@
-import { defineConfig, presetUno, presetIcons, presetWebFonts, transformerDirectives } from 'unocss'
+import {
+  defineConfig,
+  presetMini,
+  presetUno,
+  presetIcons,
+  presetWebFonts,
+  transformerDirectives
+} from 'unocss'
 
 export default defineConfig({
   content: {
@@ -7,6 +14,7 @@ export default defineConfig({
     }
   },
   presets: [
+    presetMini({ dark: 'class' }),
     presetUno,
     presetIcons({
       extraProperties: {
@@ -22,11 +30,7 @@ export default defineConfig({
       fonts: {
         sans: [
           {
-            name: 'Inter',
-            weights: [400, 500, 600, 700]
-          },
-          {
-            name: 'Noto Sans SC',
+            name: 'Poppins',
             weights: [400, 500, 600, 700]
           }
         ]

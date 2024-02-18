@@ -36,21 +36,26 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div class="w-screen h-screen flex flex-col items-center justify-between py-16 px-4 bg-muted">
-    <div class="i-carbon:logo-slack h-12 w-12 text-slate-950/90" />
+  <div class="w-screen h-screen flex flex-col items-center justify-between py-16 bg-muted">
+    <div class="i-carbon:logo-slack h-12 w-12 text-slate-950/85" />
     <div class="flex flex-col items-center">
-      <h1 class="text-center text-4xl font-semibold mb-3 text-muted">
+      <h1 class="text-4xl font-semibold mb-2 text-muted">
         欢迎使用 <span class="font-bold">Turbo OA</span>
       </h1>
-      <span class="text-sm mb-6 text-muted-foreground"
+      <span class="text-sm mb-8 text-muted-foreground"
         >登录或者获得账号以开始使用自动化工作流系统</span
       >
-      <a-form class="mb-3" layout="horizontal" :model="formInline" @submit.prevent="handleSubmit">
+      <a-form
+        class="w-320px mb-2"
+        layout="horizontal"
+        :model="formInline"
+        @submit.prevent="handleSubmit"
+      >
         <a-form-item>
           <a-input
             allow-clear
             placeholder="请输入用户名"
-            autocomplete="off"
+            autocomplete="new-username"
             v-model:value="formInline.username"
           >
             <template #addonBefore>
@@ -72,11 +77,19 @@ const handleSubmit = async () => {
           </a-input>
         </a-form-item>
         <a-form-item>
-          <a-button type="primary" html-type="submit" size="large" block :loading="loadingRef"
-            >登录</a-button
+          <a-button
+            class="!text-sm"
+            type="primary"
+            html-type="submit"
+            size="large"
+            block
+            :loading="loadingRef"
           >
+            登录
+          </a-button>
         </a-form-item>
       </a-form>
+
       <div className="relative mb-4 w-full">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full h-1px border-t bg-slate-900/10 " />
@@ -85,7 +98,12 @@ const handleSubmit = async () => {
           <span className="px-2 bg-muted text-muted-foreground"> 或使用以下方式继续 </span>
         </div>
       </div>
-      <a-button class="!text-sm flex items-center justify-center" size="large" disabled block>
+      <a-button
+        class="!w-300px !text-sm flex items-center justify-center"
+        size="large"
+        disabled
+        block
+      >
         <i class="i-carbon-logo-wechat h-5 w-5 mr-2" />
         微信
       </a-button>
@@ -128,10 +146,6 @@ const handleSubmit = async () => {
 </template>
 
 <style scoped>
-:deep(.ant-form) {
-  --at-apply: w-300px;
-}
-
 :deep(.ant-form-item) {
   --at-apply: mb-4;
 }
