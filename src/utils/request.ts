@@ -46,6 +46,7 @@ service.interceptors.response.use(
   (response: AxiosResponse<BaseResponse>) => {
     const res = response.data
     if (res.code !== ResultEnum.SUCCESS) {
+      // 后端返回错误码需统一处理
       $message.error(res.message || UNKNOWN_ERROR)
 
       if ([1101, 1102].includes(res.code)) {
@@ -73,6 +74,7 @@ service.interceptors.response.use(
   },
   error => {
     if (!(error instanceof CanceledError)) {
+      console.log(error)
       const errorMsg = error?.response?.data?.message ?? UNKNOWN_ERROR
       $message.error({ content: errorMsg, key: errorMsg })
       error.message = errorMsg

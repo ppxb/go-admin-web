@@ -51,9 +51,11 @@
 import { computed } from 'vue'
 import { useRoute, useRouter, RouteRecordRaw } from 'vue-router'
 import { MenuUnfoldOutlined, MenuFoldOutlined, QuestionCircleOutlined } from '@ant-design/icons-vue'
-import { Modal } from 'ant-design-vue'
+import { message as $message, Modal } from 'ant-design-vue'
 
 import { useUserStore } from '~/store/modules/user'
+import { nextTick } from 'vue'
+import { LOGIN_NAME } from '~/constants/router'
 
 const props = defineProps({
   collapsed: {
@@ -95,7 +97,17 @@ const handleLogout = () => {
     title: '您确定要注销登录吗？',
     icon: <QuestionCircleOutlined />,
     centered: true,
-    onOk: async () => {}
+    onOk: async () => {
+      await userStore.logout()
+      $message.success('退出登录成功')
+      await nextTick()
+      router.replace({
+        name: LOGIN_NAME,
+        query: {
+          redirect: route.fullPath
+        }
+      })
+    }
   })
 }
 

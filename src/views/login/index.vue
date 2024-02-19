@@ -8,7 +8,6 @@ import { to } from '~/utils/await-to'
 
 const router = useRouter()
 const route = useRoute()
-
 const userStore = useUserStore()
 
 const formInline = reactive({
@@ -35,15 +34,15 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div class="w-screen h-screen flex flex-col items-center justify-between py-16 bg-muted">
-    <div class="i-carbon:logo-slack h-12 w-12 text-slate-950/85" />
+  <div class="w-screen h-screen flex flex-col items-center justify-between py-12 bg-muted">
+    <div class="i-carbon:logo-slack h-12 w-12 text-muted" />
     <div class="flex flex-col items-center">
-      <h1 class="text-4xl font-semibold mb-2 text-muted">
+      <h1 class="text-4xl font-semibold text-muted mb-2">
         欢迎使用 <span class="font-bold">Turbo OA</span>
       </h1>
       <span class="text-sm mb-8 text-muted-foreground"
-        >登录或者获得账号以开始使用自动化工作流系统</span
-      >
+        >登录或者获得账号以开始使用自动化工作流系统
+      </span>
       <a-form
         class="w-320px mb-2"
         layout="horizontal"
@@ -98,7 +97,7 @@ const handleSubmit = async () => {
         </div>
       </div>
       <a-button
-        class="!w-300px !text-sm flex items-center justify-center"
+        class="!w-320px !text-sm flex items-center justify-center"
         size="large"
         disabled
         block
@@ -112,12 +111,7 @@ const handleSubmit = async () => {
     >
       <p>
         由
-        <a
-          href="https://github.com/ppxb"
-          target="_blank"
-          rel="noreferrer"
-          class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
-        >
+        <a href="https://github.com/ppxb" target="_blank" rel="noreferrer" class="custom-link">
           无敌小老鼠
         </a>
         构建。本项目源代码已在
@@ -125,7 +119,7 @@ const handleSubmit = async () => {
           href="https://github.com/ppxb/go-admin-web"
           target="_blank"
           rel="noreferrer"
-          class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
+          class="custom-link"
         >
           Github
         </a>
@@ -134,7 +128,7 @@ const handleSubmit = async () => {
           href="https://github.com/ppxb/go-admin-web/blob/main/LICENSE"
           target="_blank"
           rel="noreferrer"
-          class="font-medium underline underline-offset-4 text-muted-foreground hover:text-muted"
+          class="custom-link"
         >
           Apache
         </a>

@@ -41,6 +41,7 @@ export default defineConfig({
   shortcuts: {
     'bg-muted': 'bg-#f9f9f9',
     'text-muted': 'text-slate-950',
-    'text-muted-foreground': 'text-slate-900/60'
+    'text-muted-foreground': 'text-slate-900/60',
+    'custom-link': 'font-medium underline underline-offset-4 text-muted-foreground hover:text-muted'
   }
 })

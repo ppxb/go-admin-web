@@ -25,7 +25,7 @@ declare namespace API {
     deptId: number
   }
 
-  type UserWithPermsRes = {
+  type UserInfoRes = {
     user: UserEntity
     menus: RouteMenu[]
     perms: string[]

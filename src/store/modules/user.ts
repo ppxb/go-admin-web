@@ -2,12 +2,12 @@ import { ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { defineStore } from 'pinia'
 
-import { store } from '~/store'
 import Api from '~/api'
+import { store } from '~/store'
+import { resetRouter } from '~/router'
 import { generateDynamicRoutes } from '~/router/generator'
 import { storage } from '~/utils/storage'
 import { ACCESS_TOKEN_KEY } from '~/constants/cache'
-import { resetRouter } from '~/router'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref(storage.get(ACCESS_TOKEN_KEY, null))
@@ -40,13 +40,13 @@ export const useUserStore = defineStore('user', () => {
 
   const logout = async () => {
     await Api.auth.logout()
-    reset()
     resetRouter()
+    reset()
   }
 
   const afterLogin = async () => {
     try {
-      const data = await Api.user.userWithPerms()
+      const data = await Api.user.userInfo()
       user.value = data.user
       perms.value = data.perms
       const r = await generateDynamicRoutes(data.menus)
